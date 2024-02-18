@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_DB: social-media
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: messi1994
+    ports:
+      - "5432:5432"
