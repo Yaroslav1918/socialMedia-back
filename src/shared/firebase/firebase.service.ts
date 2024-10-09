@@ -28,7 +28,6 @@ export class FirebaseService {
       const publicUrl = `https://storage.googleapis.com/${bucket.name}/${filePath}`;
       return publicUrl;
     } catch (error) {
-      console.error('Error uploading file to Firebase Storage:', error);
       throw new Error('Failed to upload file');
     }
   }

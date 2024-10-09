@@ -210,8 +210,6 @@ export class UsersService {
   }
 
   updateUserImageById(id: number, imagePath: string): Observable<UpdateResult> {
-    console.log("🚀 ~ UsersService ~ updateUserImageById ~ id:", id)
-    console.log("🚀 ~ UsersService ~ updateUserImageById ~ imagePath:", imagePath)
     return from(
       this.usersRepository.findOne({
         where: {
@@ -220,7 +218,6 @@ export class UsersService {
       }),
     ).pipe(
       switchMap((user: User | null) => {
-        console.log('🚀 ~ UsersService ~ swistchMap ~ user:', user);
         if (!user) {
           throw new NotFoundException(`User with ID ${id} not found`);
         }

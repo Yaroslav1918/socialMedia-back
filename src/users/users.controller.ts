@@ -50,20 +50,13 @@ export class UsersController {
     }
 
     try {
-      // Upload the file to Firebase (assuming this is a promise)
       const imageUrl = await this.firebaseService.uploadFile(file);
-
       const userId = req.user.id;
-
-      // Convert Observable to a Promise and await its result
       await lastValueFrom(
         this.usersService.updateUserImageById(userId, imageUrl),
       );
-
       return res.status(200).json({ imageUrl });
     } catch (error) {
-      console.error('Error uploading file or updating user image:', error);
-      // Handle error, log it, and send appropriate response
       throw new BadRequestException(
         'Error uploading file or updating user image',
       );
