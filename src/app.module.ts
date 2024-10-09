@@ -6,7 +6,14 @@ import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { User } from './users/entities/user.entity';
+import { Post } from './posts/entities/post.entity';
+import { FriendRequest } from './users/entities/friend-request.entity';
+import { ChatModule } from './chat/chat.module';
+import { ConversationEntity } from './chat/entities/conversation.entity';
+import { MessageEntity } from './chat/entities/message.entity';
+import { ActiveConversationEntity } from './chat/entities/active-conversation';
 
 @Module({
   imports: [
@@ -16,16 +23,25 @@ import { User } from './users/entities/user.entity';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'messi1994',
+      host: process.env.DATABASE_HOST,
+      port: +process.env.DATABASE_PORT,
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
       database: 'social-media',
-      entities: [User],
+      entities: [
+        User,
+        Post,
+        FriendRequest,
+        ConversationEntity,
+        MessageEntity,
+        ActiveConversationEntity,
+      ],
       synchronize: true,
     }),
+    ChatModule,
   ],
   controllers: [AppController],
   providers: [AppService],

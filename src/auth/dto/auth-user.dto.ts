@@ -3,13 +3,17 @@ import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
 export class SignUpUserDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  firstName: string;
+  @IsNotEmpty()
+  @IsString()
+  lastName: string;
   @IsNotEmpty()
   @IsEmail()
   email: string;
   @IsNotEmpty()
-  @MinLength(8, { message: 'Password must be at least 8 characters long' })
+  @MinLength(6, { message: 'Password must be at least 6 characters long' })
   password: string;
+  imagePath?: string;
 }
 
 export class SignCredential {
@@ -17,6 +21,6 @@ export class SignCredential {
   @IsEmail()
   email: string;
   @IsNotEmpty()
-  @MinLength(8, { message: 'Password must be at least 8 characters long' })
+  @MinLength(6, { message: 'Password must be at least 6 characters long' })
   password: string;
 }
