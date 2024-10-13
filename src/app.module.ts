@@ -30,7 +30,7 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
       port: +process.env.DATABASE_PORT,
       username: process.env.DATABASE_USERNAME,
       password: process.env.DATABASE_PASSWORD,
-      database: 'social-media',
+      database: process.env.POSTGRES_DB,
       entities: [
         User,
         Post,
@@ -39,7 +39,10 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
         MessageEntity,
         ActiveConversationEntity,
       ],
-      synchronize: true,
+      synchronize: false,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     }),
     ChatModule,
   ],
