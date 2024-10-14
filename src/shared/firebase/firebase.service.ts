@@ -1,8 +1,10 @@
 import * as admin from 'firebase-admin';
 import { Injectable } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
+import 'dotenv/config';
 
 const firebaseConfig = JSON.parse(process.env.FIREBASE_ADMIN_SDK);
+
 
 @Injectable()
 export class FirebaseService {

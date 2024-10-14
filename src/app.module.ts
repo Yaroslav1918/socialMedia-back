@@ -17,13 +17,12 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
 
 @Module({
   imports: [
-    AuthModule,
-    UsersModule,
-    PostsModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-
+    AuthModule,
+    UsersModule,
+    PostsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DATABASE_HOST,
