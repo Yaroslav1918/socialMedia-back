@@ -43,7 +43,6 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
         MessageEntity,
         ActiveConversationEntity,
       ],
-      synchronize: false,
     }),
     ChatModule,
   ],
