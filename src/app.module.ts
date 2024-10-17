@@ -25,8 +25,11 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
     PostsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      url: process.env.DATABASE_URL,
-      autoLoadEntities: true,
+      host: process.env.DATABASE_HOST,
+      port: +process.env.DATABASE_PORT,
+      username: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.POSTGRES_DB,
       entities: [
         User,
         Post,
@@ -35,6 +38,7 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
         MessageEntity,
         ActiveConversationEntity,
       ],
+      synchronize: false,
     }),
     ChatModule,
   ],
