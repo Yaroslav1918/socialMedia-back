@@ -39,9 +39,6 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
         ActiveConversationEntity,
       ],
       synchronize: false,
-      ssl: {
-        rejectUnauthorized: false,
-      },
     }),
     ChatModule,
   ],
