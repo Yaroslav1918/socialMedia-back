@@ -30,6 +30,11 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
       username: process.env.DATABASE_USERNAME,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.POSTGRES_DB,
+      autoLoadEntities: true,
+      synchronize: false,
+      ssl: {
+        rejectUnauthorized: false,
+      },
       entities: [
         User,
         Post,
