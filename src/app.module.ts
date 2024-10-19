@@ -27,7 +27,7 @@ import { ActiveConversationEntity } from './chat/entities/active-conversation';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
-      synchronize: false,
+      synchronize: true,
       ssl: {
         rejectUnauthorized: false,
       },
