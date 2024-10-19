@@ -10,6 +10,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.use(morgan('combined'));
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
 }
 bootstrap();

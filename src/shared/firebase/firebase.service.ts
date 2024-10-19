@@ -5,7 +5,6 @@ import 'dotenv/config';
 
 const firebaseConfig = JSON.parse(process.env.FIREBASE_ADMIN_SDK);
 
-
 @Injectable()
 export class FirebaseService {
   constructor() {
